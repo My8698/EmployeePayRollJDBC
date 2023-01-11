@@ -7,11 +7,12 @@ import java.util.List;
 
 public class JDBCDemo {
 
-   /** @Test
+    /**@Test
     public void getDB_Connection() {
         Connection dbConnection = new JDBCConnection().getDBConnection();
         System.out.println(dbConnection);
     }**/
+
     @Test
     public void givenEmployeePayrollInDb_WhenRetrieved_ShouldMatchEmployeeCount() throws SQLException {
         EmployeePayRollService employeePayRollService = new EmployeePayRollService();
@@ -30,5 +31,10 @@ public class JDBCDemo {
         EmployeePayRollDBService employeePayrollDBService = new EmployeePayRollDBService();
         String date_string = "2019-11-13";
         employeePayrollDBService.retrieveAccordingToDate(date_string);
+    }
+    @Test
+    public void abilityToFindSumOfSalary_GroupByGender() {
+        EmployeePayRollDBService employeePayrollDBService = new EmployeePayRollDBService();
+        employeePayrollDBService.sumUsingGroupByGender("basic_pay");
     }
 }

@@ -75,4 +75,23 @@ public class EmployeePayRollDBService {
         }
         return null;
     }
+    public ResultSet sumUsingGroupByGender(String value) {
+        String sqlQuery = String.format("Select gender,sum(%s) from employee_payroll group by gender;",value);
+        try(Connection connection = this.getConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sqlQuery);
+            System.out.println("\nSum of Salary of the employee's group by Gender is as follows \n");
+            while (resultSet.next())
+            {
+                System.out.println(resultSet.getString(1)+" "+
+                        resultSet.getString(2));
+            }
+            System.out.println("\nEnd of data\n");
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Exception occured while executing sumUsingGroupByGender : "+e );
+        }
+        return null;
+    }
 }
