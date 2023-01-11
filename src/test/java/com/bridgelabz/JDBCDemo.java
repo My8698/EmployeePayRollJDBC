@@ -37,4 +37,24 @@ public class JDBCDemo {
         EmployeePayRollDBService employeePayrollDBService = new EmployeePayRollDBService();
         employeePayrollDBService.sumUsingGroupByGender("basic_pay");
     }
+    @Test
+    public void abilityToFindAvgOfSalary_GroupByGender() {
+        EmployeePayRollDBService employeePayrollDBService = new EmployeePayRollDBService();
+        employeePayrollDBService.avgUsingGroupByGender("basic_pay");
+    }
+    @Test
+    public void abilityToFindMinSalary_GroupByGender() {
+        EmployeePayRollDBService employeePayrollDBService = new EmployeePayRollDBService();
+        employeePayrollDBService.minSalaryUsingGroupByGender("basic_pay");
+    }
+    @Test
+    public void abilityToFindMaxSalary_GroupByGender() {
+        EmployeePayRollDBService employeePayrollDBService = new EmployeePayRollDBService();
+        employeePayrollDBService.maxSalaryUsingGroupByGender("basic_pay");
+    }
+    @Test
+    public void abilityToCountEmployeesUsingGroupByGender() {
+        EmployeePayRollDBService employeePayrollDBService = new EmployeePayRollDBService();
+        employeePayrollDBService.countEmployeesUsingGroupByGender("gender");
+    }
 }
