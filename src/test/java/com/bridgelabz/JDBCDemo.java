@@ -20,4 +20,11 @@ public class JDBCDemo {
         List<EmployeePayRollData> employeePayrollData = employeePayRollService.readEmployeePayrollData(EmployeePayRollService.IOService.DB_IO);
         Assert.assertEquals(4,employeePayrollData.size());
     }
+    @Test
+    public void givenNewSalaryForEmployee_WhenUpdated_ShouldMatch() {
+        EmployeePayRollService employeePayrollService = new EmployeePayRollService();
+        List<EmployeePayRollData> employeePayrollData = employeePayrollService.readEmployeePayrollData(EmployeePayRollService.IOService.DB_IO);
+        employeePayrollService.updateEmployeeDataUsingStatement("Terisa",550000.00);
+        System.out.println("The number of employees are  "+employeePayrollData.size());
+    }
 }

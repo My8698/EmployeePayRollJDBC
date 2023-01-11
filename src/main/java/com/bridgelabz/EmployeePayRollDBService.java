@@ -41,4 +41,14 @@ public class EmployeePayRollDBService {
         }
         return connection;
     }
+    public int updateEmployeeDataUsingStatement(String name, double basic_pay) {
+        String sqlQuery = String.format("update employee_payroll set basic_pay = %2f where name = '%s';",basic_pay, name);
+        try(Connection connection = this.getConnection()){
+            Statement statement = connection.createStatement();
+            return statement.executeUpdate(sqlQuery);
+        }catch (Exception e) {
+            System.out.println("Exception occured : "+e);
+        }
+        return 0;
+    }
 }
